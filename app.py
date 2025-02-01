@@ -2,11 +2,11 @@
 import torch
 import tensorflow as tf
 import streamlit as st
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering, pipeline
 
-tokenizer = AutoTokenizer.from_pretrained("Docty/question_and_answer")
-
-model = AutoModelForQuestionAnswering.from_pretrained("Docty/question_and_answer", from_tf=True)
+#tokenizer = AutoTokenizer.from_pretrained("Docty/question_and_answer")
+pipe = pipeline("question-answering", model="Docty/question_and_answer")
+#model = AutoModelForQuestionAnswering.from_pretrained("Docty/question_and_answer", from_tf=True)
 
 
 def get_answer(question, context):
@@ -37,9 +37,9 @@ def main():
     question = st.text_input("Ask a question:")
 
     if st.button("Get Answer"):
-        answer = get_answer(question, context)
+        answer = pipe(question, context)    #get_answer(question, context)
         st.write(f"Question: {question}")
-        st.write(f"Answer: {answer}")
+        st.write(f"Answer: {answer['answer']}")
 
 if __name__ == "__main__":
     main()
