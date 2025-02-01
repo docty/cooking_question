@@ -1,4 +1,6 @@
 # Load model directly
+import torch
+import streamlit as st
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 
 tokenizer = AutoTokenizer.from_pretrained("Docty/question_and_answer")
