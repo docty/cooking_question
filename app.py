@@ -1,5 +1,6 @@
 # Load model directly
 import torch
+import tensorflow as tf
 import streamlit as st
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 
