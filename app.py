@@ -1,11 +1,11 @@
 # Load model directly
 import torch
 import streamlit as st
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering
+from transformers import AutoTokenizer, TFAutoModelForQuestionAnswering
 
 tokenizer = AutoTokenizer.from_pretrained("Docty/question_and_answer")
 
-model = AutoModelForQuestionAnswering.from_pretrained("Docty/question_and_answer", from_tf=True) 
+model = TFAutoModelForQuestionAnswering.from_pretrained("Docty/question_and_answer") 
 
 
 def get_answer(question, context):
