@@ -5,7 +5,7 @@ import streamlit as st
 from transformers import   pipeline
 
  
-pipe = pipeline("question-answering", model="Docty/question_and_answer") 
+pipe = pipeline("question-answering", model="distilbert/distilbert-base-cased-distilled-squad") 
 
 
  
